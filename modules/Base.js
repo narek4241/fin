@@ -1,4 +1,4 @@
-module.exports = class LiveForm {
+module.exports = class Base {
     constructor(x, y) {
         this.x = x;
         this.y = y;
