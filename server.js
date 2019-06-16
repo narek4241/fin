@@ -11,6 +11,7 @@ grassArr = [];
 grassEaterArr = [];
 matrix = [];
 grassHashiv = 0;
+grassEaterHashiv = 0;
 //! Setting global arrays  -- END
 
 
@@ -65,6 +66,7 @@ app.get('/', function (req, res) {
     res.redirect('index.html');
 });
 server.listen(3000);
+console.log('Fin The Server is running on port 3000');
 //! SERVER STUFF END  --  END
 
 
@@ -75,6 +77,7 @@ function creatingObjects() {
             if (matrix[y][x] == 2) {
                 var grassEater = new GrassEater(x, y);
                 grassEaterArr.push(grassEater);
+                grassEaterHashiv++;
             } else if (matrix[y][x] == 1) {
                 var grass = new Grass(x, y);
                 grassArr.push(grass);
@@ -100,7 +103,8 @@ function game() {
     //! Object to send
     let sendData = {
         matrix: matrix,
-        grassCounter: grassHashiv
+        grassCounter: grassHashiv,
+        grassEaterCounter: grassEaterHashiv,
     }
 
     //! Send data over the socket to clients who listens "data"
