@@ -3,8 +3,9 @@ var random = require("./random");
 
 
 module.exports = class Grass extends Base {
-    constructor(x, y, index) {
-        super(x, y, index);
+    constructor(x, y) {
+        super(x, y);
+        this.index = 1;
         this.multiply = 0;
         this.treatment = 0;
         this.directions = [
