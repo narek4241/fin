@@ -8,6 +8,21 @@ function setup() {
 
     var matrix = [];
 
+    /* Images for Heroes */
+
+    let ground = loadImage('img/ground.jpg');
+    let grass = loadImage('img/grass.jpg');
+    let grassEater = loadImage('img/_cow.jpg');
+    // let predator = loadImage('img/bear.jpg');
+    let predator = loadImage('img/_rhino.jpg');
+    let marsh = loadImage('img/marsh.jpg');
+    // let hunter = loadImage('img/hunter.jpg');
+    let hunter = loadImage('img/hunter.png');
+    // let victim = loadImage('img/victim.jpg');
+    let victim = loadImage('img/victim_.jpg');
+
+    /* End Images */
+
     //! Getting DOM objects (HTML elements)
     let grassCountElement = document.getElementById('grassCount');
     let grassEaterCountElement = document.getElementById('grassEaterCount');
@@ -38,20 +53,27 @@ function setup() {
             for (var j = 0; j < matrix[i].length; j++) {
                 if (matrix[i][j] == 1) {
                     fill("green");
+                    image(grass, j * side, i * side, side, side);
                 } else if (matrix[i][j] == 2) {
                     fill("orange");
+                    image(grassEater, j * side, i * side, side, side);
                 } else if (matrix[i][j] == 0) {
                     fill('#acacac');
+                    image(ground, j * side, i * side, side, side);
                 } else if (matrix[i][j] == 3) {
                     fill('red');
+                    image(predator, j * side, i * side, side, side);
                 } else if (matrix[i][j] == 4) {
                     fill('aqua');
+                    image(marsh, j * side, i * side, side, side);
                 } else if (matrix[i][j] == 5) {
-                    fill('black');
+                    fill('brown');
+                    image(hunter, j * side, i * side, side, side);
                 }else if (matrix[i][j] == 6) {
                     fill('blue');
+                    image(victim, j * side, i * side, side, side);
                 }
-                rect(j * side, i * side, side, side);
+                // rect(j * side, i * side, side, side);
             }
         }
     }
