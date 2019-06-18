@@ -11,7 +11,10 @@ function setup() {
     /* Images for Heroes */
 
     let ground = loadImage('img/ground.jpg');
+
     let grass = loadImage('img/grass.jpg');
+    let snow = loadImage('img/snow_grass.jpg');
+
     let grassEater = loadImage('img/_cow.jpg');
     let predator = loadImage('img/_rhino.jpg');
     let marsh = loadImage('img/marsh.jpg');
@@ -34,6 +37,7 @@ function setup() {
     function drawCreatures(data) {
         //! after getting data pass it to matrix variable
         matrix = data.matrix;
+        eghanak = data.weather;
         grassCountElement.innerText = data.grassCounter;
         grassEaterCountElement.innerText = data.grassEaterCounter;
         PredatorCountElement.innerText = data.PredatorCounter;
@@ -49,7 +53,13 @@ function setup() {
         for (var i = 0; i < matrix.length; i++) {
             for (var j = 0; j < matrix[i].length; j++) {
                 if (matrix[i][j] == 1) {
-                    fill("green");
+                    if(eghanak == "summer")
+                    {
+                        image(grass, j * side, i * side, side, side);
+                    }
+                    else{
+                        image(snow, j * side, i * side, side, side);
+                    }
                     image(grass, j * side, i * side, side, side);
                 } else if (matrix[i][j] == 2) {
                     fill("orange");

@@ -114,9 +114,39 @@ function creatingObjects() {
         }
     }
 }
+ 
+///////////////////////
+
+let season = 0;
+weatheris = "winter";
+
+let sendData = {
+    matrix: matrix,
+    weather: weatheris,
+}
+function chweather(){
+    season++;
+    if(season > 0 && season < 6){
+        weatheris = "winter";
+    }
+    else if(season >= 6 && season < 12){
+        weatheris = "summer";
+    }
+    else{
+        season = 0;
+    }
+}
+
+
+
+
+
+
 creatingObjects();
 
 function game() {
+    chweather();
+
     if (grassArr[0] !== undefined) {
         for (var i in grassArr) {
             grassArr[i].mul();
