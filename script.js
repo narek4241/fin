@@ -13,12 +13,9 @@ function setup() {
     let ground = loadImage('img/ground.jpg');
     let grass = loadImage('img/grass.jpg');
     let grassEater = loadImage('img/_cow.jpg');
-    // let predator = loadImage('img/bear.jpg');
     let predator = loadImage('img/_rhino.jpg');
     let marsh = loadImage('img/marsh.jpg');
-    // let hunter = loadImage('img/hunter.jpg');
     let hunter = loadImage('img/hunter.png');
-    // let victim = loadImage('img/victim.jpg');
     let victim = loadImage('img/victim_.jpg');
 
     /* End Images */
