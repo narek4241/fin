@@ -1,5 +1,3 @@
-
-//! Requiring modules  --  START
 var Grass = require("./modules/Grass.js");
 var GrassEater = require("./modules/GrassEater.js");
 var Predator = require("./modules/Predator.js");
@@ -7,10 +5,7 @@ var Marsh = require("./modules/Marsh.js");
 var Hunter = require("./modules/Hunter.js");
 
 let random = require('./modules/random');
-//! Requiring modules  --  END
 
-
-//! Setting global arrays  --  START
 grassArr = [];
 grassEaterArr = [];
 PredatorArr = [];
@@ -24,19 +19,6 @@ grassEaterHashiv = 0;
 PredatorHashiv = 0;
 MarshHashiv = 0;
 HunterHashiv = 0;
-//! Setting global arrays  -- END
-
-
-// io.on('connection', function(socket){
-//     socket.on("spanel", mah);
-// });
-
-// function mah(){
-//     console.log(1);
-// }
-
-
-
 
 
 //! Creating MATRIX -- START
@@ -48,8 +30,8 @@ function matrixGenerator(matrixSize, grass, grassEater, Predator, Marsh, Hunter)
         }
     }
     for (let i = 0; i < grass; i++) {
-        let customX = Math.floor(random(matrixSize)); // 0-9
-        let customY = Math.floor(random(matrixSize)); // 4
+        let customX = Math.floor(random(matrixSize)); 
+        let customY = Math.floor(random(matrixSize)); 
         matrix[customY][customX] = 1;
     }
     for (let i = 0; i < grassEater; i++) {
@@ -125,9 +107,8 @@ function creatingObjects() {
     }
 }
  
-///////////////////////
-//////////////////////
 
+// Declaring Seasons >> Start
 let season = 0;
 weatheris = "winter";
 
@@ -152,6 +133,7 @@ function chweather(){
         season = 0;
     }
 }
+// Declaring Seasons -- END
 
 
 
@@ -186,7 +168,6 @@ function game() {
             else{
                 grassArr[i].mul();
             }
-            // grassArr[i].mul();
         }
     }
     if (grassEaterArr[0] !== undefined) {

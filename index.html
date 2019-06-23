@@ -66,19 +66,19 @@
                 background-image: url(img/grass_spring.jpg);
             }
             .avatar_grassEater{
-                background-image: url(img/_cow.jpg);
+                background-image: url(img/grassEater.jpg);
             }
             .avatar_predator{
-                background-image: url(img/_rhino.jpg);
+                background-image: url(img/Predator.jpg);
             }
             .avatar_marsh{
-                background-image: url(img/marsh.jpg);
+                background-image: url(img/Marsh.jpg);
             }
             .avatar_hunter{
-                background-image: url(img/hunter.png);
+                background-image: url(img/Hunter.png);
             }
             .avatar_victim{
-                background-image: url(img/victim_.jpg);
+                background-image: url(img/Victim.jpg);
             }
 
             @keyframes evn {
@@ -93,10 +93,8 @@
                 width: 100%;
                 height: 100%;
                 position: absolute;
-                /* background-color: red; */
             }
             .buttons{
-                /* background-color: lightgrey; */
                 width: 100%;
                 display: flex;
                 justify-content: space-evenly;
@@ -115,7 +113,6 @@
                 65%, 100%{clip-path: polygon(0 100%, 100% 100%, 100% 100%, 0% 100%);}
             }
     </style>
-    <!-- </style> -->
 </head>
 
 <body>
@@ -215,7 +212,7 @@
         // document.getElementById("bckg").style.background = "lightyellow url('img/back_summer.jpg') no-repeat center"
     }
     function removeBackground(){
-        document.body.style.background = "lightyellow url('') no-repeat center";
+        document.body.style.background = "url('') no-repeat center";
     }
     function addAnimation(){
         document.body.style.animation = "evn 10s infinite";
