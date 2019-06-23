@@ -79,7 +79,7 @@ module.exports = class Hunter extends Base{
             var newX = newCell[0];
             var newY = newCell[1];
 
-            matrix[this.y][this.x] = this.index;
+            matrix[this.y][this.x] = 5;
             matrix[newY][newX] = 6;
 
             for (var i in PredatorArr) {
@@ -94,7 +94,7 @@ module.exports = class Hunter extends Base{
     die() {
 
         if (this.energy == 0) {
-            
+            matrix[this.y][this.x] = 0;
             for (var i in HunterArr) {
                 if (this.x == HunterArr[i].x && this.y == HunterArr[i].y) {
                     HunterArr.splice(i, 1);

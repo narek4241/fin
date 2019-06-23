@@ -73,7 +73,6 @@ console.log(matrix);
                     {
                         image(grass_summer, j * side, i * side, side, side);
                         // image(grass_autumn, j * side, i * side, side, side);
-
                     }
                     else if(eghanak == "autumn")
                     {

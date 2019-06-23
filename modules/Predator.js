@@ -87,6 +87,7 @@ module.exports = class Predator extends Base{
         var newCell = random(this.chooseCell(0));
 
         if (this.energy >= 6 && newCell) {
+            PredatorHashiv++;
             var newPredator = new Predator(newCell[0], newCell[1], this.index);
             PredatorArr.push(newPredator);
             matrix[newCell[1]][newCell[0]] = 3;

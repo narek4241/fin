@@ -46,7 +46,7 @@ module.exports = class Marsh extends Base{
         var newCell5 = this.chooseCell(5);
         var newCell6 = this.chooseCell(6);
 
-        var newCell = random(newCell0.concat(newCell1).concat(newCell2).concat(newCell3).concat(newCell5).concat(newCell5).concat(newCell6));
+        var newCell = random(newCell0.concat(newCell1).concat(newCell2).concat(newCell3).concat(newCell5).concat(newCell6));
         
         if (this.energy >= 40 && newCell) {
             MarshHashiv++;
