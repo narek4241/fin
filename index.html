@@ -22,6 +22,33 @@
         body {
             font-family: 'Noto Sans', sans-serif !important;
         }
+        button{
+            background-color: #4CAF50; /* Green */
+            border: none;
+            color: white;
+            padding: 15px 32px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 16px;
+            margin: 10px 15px;
+            cursor: pointer;
+        }
+        .button:hover{
+            animation:button 100s linear 1;
+        }
+        @keyframes button{
+            0%{
+                background-color: #4CAF50;
+            }
+            5%, 100%{
+                background-color: rgb(76, 92, 18);
+            }
+        }
+         .button:active{
+            background-color: green;
+            color: lightgreen;
+        }
     </style>
     <!-- </style> -->
 </head>
@@ -100,7 +127,7 @@
         </tbody>
     </table>
 
-    <!-- <button onclick="spanel()">Kill</button> -->
+    <button class="button" onclick="spanel()">Kill</button>
 
     <script src="p5.js"></script>
     <script src="/socket.io/socket.io.js"></script>

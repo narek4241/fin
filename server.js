@@ -26,9 +26,14 @@ MarshHashiv = 0;
 HunterHashiv = 0;
 //! Setting global arrays  -- END
 
+
 // io.on('connection', function(socket){
-//     socket.on("spanel", mah)
-// })
+//     socket.on("spanel", mah);
+// });
+
+function mah(){
+    console.log(1);
+}
 
 
 
