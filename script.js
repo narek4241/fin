@@ -8,6 +8,7 @@ function setup() {
 
     var matrix = [];
 
+
     /* Images for Heroes */
 
     let ground = loadImage('img/ground.jpg');
@@ -47,10 +48,11 @@ function setup() {
     // end - click
 
     function drawCreatures(data) {
+console.log(matrix);
+
         //! after getting data pass it to matrix variable
         matrix = data.matrix;
         eghanak = data.weather;
-        console.log(eghanak);
 
         grassCountElement.innerText = data.grassCounter;
         grassEaterCountElement.innerText = data.grassEaterCounter;

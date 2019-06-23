@@ -7,6 +7,7 @@
     <style>
         body{
             margin: 0;
+            background-size: cover;
         }
         canvas {
             display: block;
@@ -38,14 +39,16 @@
             cursor: pointer;
         }
         .button:hover{
-            animation:button 100s linear 1;
+            animation:button 10s linear 1;
         }
         @keyframes button{
             0%{
                 background-color: #4CAF50;
+                transform: scale(1);
             }
             5%, 100%{
                 background-color: rgb(76, 92, 18);
+                transform: scale(1.05);
             }
         }
          .button:active{
@@ -92,6 +95,25 @@
                 position: absolute;
                 /* background-color: red; */
             }
+            .buttons{
+                /* background-color: lightgrey; */
+                width: 100%;
+                display: flex;
+                justify-content: space-evenly;
+                margin-bottom: 2%;
+            }
+            .heading{
+                /* color: grey; */
+                font-family: Georgia, 'Times New Roman', Times, serif;
+                animation: heading 10s linear 1;
+            }
+            @keyframes heading{
+                0%,20%{clip-path: polygon(0 0, 100% 0, 100% 0, 0 0);}
+                35%{clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 100%);transform: scale(1);}
+                38%{transform: scale(1.4);}
+                40%, 60%{transform: scale(1.2);}
+                65%, 100%{clip-path: polygon(0 100%, 100% 100%, 100% 100%, 0% 100%);}
+            }
     </style>
     <!-- </style> -->
 </head>
@@ -115,7 +137,7 @@
         <tbody>
             <tr>
                 <th scope="row">1</th>
-                <td scope="row" class='avatar avatar_grass'></td>
+                <td scope="row" class='avatar avatar_grass' id="grass_av"></td>
                 <td>Խոտն է, Վերականգնում է ճահճից մոտակա 8 վանդակներում 20-ը տակտը մեկ,
                     Բազմանում է Մոտակա 8 վանդակներում, 2 տակտը մեկ (Բազմանում է նաև սատկած Գիշատչի վրա)
                 </td>
@@ -170,10 +192,19 @@
         </tbody>
     </table>
 
-    <button class="button" onclick="setBackground()">Set Background</button>
-    <button class="button" onclick="removeBackground()">Remove Background</button>
-    <button class="button anim" onclick="addAnimation()">Add Animation</button>
-    <button class="button anim" onclick="removeAnimation()">Remove Animation</button>
+    <div class="buttons">
+        <div class="background_botton">
+            <div><button class="button" onclick="setBackground()">Set Background</button></div>
+            <div><button class="button" onclick="removeBackground()">Remove Background</button></div>
+        </div>
+        <div class="heading">
+            <h1>GameOfLife</h1>
+        </div>
+        <div>
+            <div><button class="button anim" onclick="addAnimation()">Add Animation</button></div>
+            <div><button class="button anim" onclick="removeAnimation()">Remove Animation</button></div>
+        </div>
+    </div>
 
     <div id="bckg"></div>
 
@@ -184,14 +215,16 @@
         // document.getElementById("bckg").style.background = "lightyellow url('img/back_summer.jpg') no-repeat center"
     }
     function removeBackground(){
-        document.body.style.background = " url('img/backaa_summer.jpg') no-repeat center";
+        document.body.style.background = "lightyellow url('') no-repeat center";
     }
     function addAnimation(){
         document.body.style.animation = "evn 10s infinite";
     }
     function removeAnimation(){
-        document.body.style.animation = "aaa 10s infinite";
+        document.body.style.animation = "";
     }
+    // document.getElementById(grass_av).style.background = "url('grass_autumn.jpg')";
+
     </script>
     <script src="p5.js"></script>
     <script src="/socket.io/socket.io.js"></script>
