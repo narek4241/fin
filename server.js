@@ -26,6 +26,11 @@ MarshHashiv = 0;
 HunterHashiv = 0;
 //! Setting global arrays  -- END
 
+// io.on('connection', function(socket){
+//     socket.on("spanel", mah)
+// })
+
+
 
 
 
@@ -116,26 +121,33 @@ function creatingObjects() {
 }
  
 ///////////////////////
+//////////////////////
 
 let season = 0;
 weatheris = "winter";
 
-let sendData = {
-    matrix: matrix,
-    weather: weatheris,
-}
+
 function chweather(){
     season++;
+    // console.log(season);
+
     if(season > 0 && season < 6){
-        weatheris = "winter";
+        weatheris = "summer";
     }
     else if(season >= 6 && season < 12){
-        weatheris = "summer";
+        weatheris = "autumn";
+    }
+    else if(season >= 12 && season < 16){
+        weatheris = "winter";
+    }
+    else if(season >= 16 && season < 18){
+        weatheris = "spring";
     }
     else{
         season = 0;
     }
 }
+
 
 
 
@@ -188,6 +200,8 @@ function game() {
         PredatorCounter: PredatorHashiv,
         MarshCounter: MarshHashiv,
         HunterCounter: HunterHashiv,
+        matrix: matrix,
+        weather: weatheris
     }
 
     //! Send data over the socket to clients who listens "data"

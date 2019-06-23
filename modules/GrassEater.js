@@ -68,6 +68,7 @@ module.exports = class GrassEater extends Base {
         var newCell = random(this.chooseCell(0));
 
         if (this.energy >= 12 && newCell) {
+            grassEaterHashiv++;
             var newGrassEater = new GrassEater(newCell[0], newCell[1], this.index);
             grassEaterArr.push(newGrassEater);
             matrix[newCell[1]][newCell[0]] = 2;

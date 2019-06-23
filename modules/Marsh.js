@@ -38,7 +38,7 @@ module.exports = class Marsh extends Base{
 
     mul() {
         this.energy += 2;
-
+        
         var newCell0 = this.chooseCell(0);
         var newCell1 = this.chooseCell(1);
         var newCell2 = this.chooseCell(2);
@@ -49,6 +49,7 @@ module.exports = class Marsh extends Base{
         var newCell = random(newCell0.concat(newCell1).concat(newCell2).concat(newCell3).concat(newCell5).concat(newCell5).concat(newCell6));
         
         if (this.energy >= 40 && newCell) {
+            MarshHashiv++;
             var newMarsh = new Marsh(newCell[0], newCell[1], this.index);
             MarshArr.push(newMarsh);
             matrix[newCell[1]][newCell[0]] = 4;

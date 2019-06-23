@@ -12,8 +12,10 @@ function setup() {
 
     let ground = loadImage('img/ground.jpg');
 
-    let grass = loadImage('img/grass.jpg');
-    let snow = loadImage('img/snow_grass.jpg');
+    let grass_spring = loadImage('img/grass_spring.jpg'); 
+    let grass_summer = loadImage('img/grass_summer.jpg'); 
+    let grass_autumn = loadImage('img/grass_autumn.jpg');
+    let grass_winter = loadImage('img/grass_winter.jpg');
 
     let grassEater = loadImage('img/_cow.jpg');
     let predator = loadImage('img/_rhino.jpg');
@@ -38,6 +40,8 @@ function setup() {
         //! after getting data pass it to matrix variable
         matrix = data.matrix;
         eghanak = data.weather;
+        console.log(eghanak);
+
         grassCountElement.innerText = data.grassCounter;
         grassEaterCountElement.innerText = data.grassEaterCounter;
         PredatorCountElement.innerText = data.PredatorCounter;
@@ -55,29 +59,33 @@ function setup() {
                 if (matrix[i][j] == 1) {
                     if(eghanak == "summer")
                     {
-                        image(grass, j * side, i * side, side, side);
+                        image(grass_summer, j * side, i * side, side, side);
+                        // image(grass_autumn, j * side, i * side, side, side);
+
                     }
-                    else{
-                        image(snow, j * side, i * side, side, side);
+                    else if(eghanak == "autumn")
+                    {
+                        image(grass_autumn, j * side, i * side, side, side);
                     }
-                    image(grass, j * side, i * side, side, side);
+                    else if(eghanak == "winter"){
+                        image(grass_winter, j * side, i * side, side, side);
+                    }
+                    else  
+                    {
+                        image(grass_spring, j * side, i * side, side, side);
+                    }
+                    // image(grass, j * side, i * side, side, side);
                 } else if (matrix[i][j] == 2) {
-                    fill("orange");
                     image(grassEater, j * side, i * side, side, side);
                 } else if (matrix[i][j] == 0) {
-                    fill('#acacac');
                     image(ground, j * side, i * side, side, side);
                 } else if (matrix[i][j] == 3) {
-                    fill('red');
                     image(predator, j * side, i * side, side, side);
                 } else if (matrix[i][j] == 4) {
-                    fill('aqua');
                     image(marsh, j * side, i * side, side, side);
                 } else if (matrix[i][j] == 5) {
-                    fill('brown');
                     image(hunter, j * side, i * side, side, side);
                 }else if (matrix[i][j] == 6) {
-                    fill('blue');
                     image(victim, j * side, i * side, side, side);
                 }
                 // rect(j * side, i * side, side, side);
