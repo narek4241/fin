@@ -5,6 +5,9 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
         integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <style>
+        body{
+            margin: 0;
+        }
         canvas {
             display: block;
             margin: 0 auto;
@@ -49,6 +52,46 @@
             background-color: green;
             color: lightgreen;
         }
+        .avatar{
+            width: 20px;
+            height: 100%;
+            /* height: 2%; */
+            background-size: contain;
+            background-repeat: no-repeat;
+        }
+            .avatar_grass{
+                background-image: url(img/grass_spring.jpg);
+            }
+            .avatar_grassEater{
+                background-image: url(img/_cow.jpg);
+            }
+            .avatar_predator{
+                background-image: url(img/_rhino.jpg);
+            }
+            .avatar_marsh{
+                background-image: url(img/marsh.jpg);
+            }
+            .avatar_hunter{
+                background-image: url(img/hunter.png);
+            }
+            .avatar_victim{
+                background-image: url(img/victim_.jpg);
+            }
+
+            @keyframes evn {
+                0% , 30%{ background-color: lightgreen; }
+                30% { background-color: orange; }
+                50% { background-color: yellow; }
+                75% { background-color: green; }
+                100% { background-color: red; }
+            }
+
+            #bckg{
+                width: 100%;
+                height: 100%;
+                position: absolute;
+                /* background-color: red; */
+            }
     </style>
     <!-- </style> -->
 </head>
@@ -72,7 +115,7 @@
         <tbody>
             <tr>
                 <th scope="row">1</th>
-                <td scope="row" style="background-color:green;"></td>
+                <td scope="row" class='avatar avatar_grass'></td>
                 <td>Խոտն է, Վերականգնում է ճահճից մոտակա 8 վանդակներում 20-ը տակտը մեկ,
                     Բազմանում է Մոտակա 8 վանդակներում, 2 տակտը մեկ (Բազմանում է նաև սատկած Գիշատչի վրա)
                 </td>
@@ -80,7 +123,7 @@
             </tr>
             <tr>
                 <th scope="row">2</th>
-                <td scope="row" style="background-color:orange;"></td>
+                <td scope="row" class='avatar avatar_grassEater'></td>
                 <td>Խոտակերն է, Շարժվում է մոտակա 8 վանդակներում, էներգիան քչանում է 1֊ով,
                     Ուտում է Խոտերին, մոտակա 8 վանդակներում, էներգիան ավելանում է 2֊ով,
                     Բազմանում է մոտակա տարածքներում երբ էներգիան 12֊ից ավել է,
@@ -90,7 +133,7 @@
             </tr>
             <tr>
                 <th scope="row">3</th>
-                <td scope="row" style="background-color:red;"></td>
+                <td scope="row" class='avatar avatar_predator'></td>
                 <td>Գիշատիչն է, Շարժվում է մոտակա 8 վանդակներում էներգիան քչանում է 1֊ով,
                     Ուտում է խոտակերներին մոտակա 8 վանդակներում էներգիան ավելանում է 2֊ով,
                     Բազմանում է մոտակա տարածքներում երբ էներգիան 6֊ից ավել է,
@@ -100,7 +143,7 @@
             </tr>
             <tr>
                 <th scope="row">4</th>
-                <td scope="row" style="background-color:#d2cb76;"></td>
+                <td scope="row" class='avatar avatar_marsh'></td>
                 <td>Ճահիճն է, 
                     Ուտում է խոտակերներին,Գիշատիչներին (Վիրավոր Գիշատիչներին) և Որսորդներին (բոլորին բացի Խոտերից) մոտակա 8 վանդակներում ուտելիս էներգիան ավելանում է 2֊ով,
                     Բազմանում է մոտակա տարածքներում երբ էներգիան 50֊ից ավել է։
@@ -109,7 +152,7 @@
             </tr>
             <tr>
                 <th scope="row">5</th>
-                <td scope="row" style="background-color:black;"></td>
+                <td scope="row" class='avatar avatar_hunter'></td>
                 <td>Որսորդն է, Շարժվում է մոտակա 25 վանդակներում, էներգիան քչանում է 1֊ով,
                     Կրակուկոմ է / Որսում է գիշատիչներին, մոտակա 25 վանդակներում․․․․վիրավորում է դարձնելով վիրավոր, էներգիան ավելանում է 2֊ով,
                     Մահանում է Երբ Ճահիճի մեջ է ընկնում կամ երբ որ էներգիան փոքր է 0֊ից։
@@ -118,8 +161,8 @@
             </tr>
             <tr>
                 <th scope="row">6</th>
-                <td scope="row" style="background-color:#0e7c61;"></td>
-                <td>Վիրավորն է, (հատուկ կլասս չէ),
+                <td scope="row" class='avatar avatar_victim'></td>
+                <td>Վիրավորն է, (հատուկ կերպար չէ),
                     Վրեն խոտ է աճում
                 </td>
                 <td id=""></td>
@@ -127,8 +170,29 @@
         </tbody>
     </table>
 
-    <button class="button" onclick="spanel()">Kill</button>
+    <button class="button" onclick="setBackground()">Set Background</button>
+    <button class="button" onclick="removeBackground()">Remove Background</button>
+    <button class="button anim" onclick="addAnimation()">Add Animation</button>
+    <button class="button anim" onclick="removeAnimation()">Remove Animation</button>
 
+    <div id="bckg"></div>
+
+    <script>
+    
+    function setBackground(){
+        document.body.style.background = "lightyellow url('img/back_summer.jpg') no-repeat center";
+        // document.getElementById("bckg").style.background = "lightyellow url('img/back_summer.jpg') no-repeat center"
+    }
+    function removeBackground(){
+        document.body.style.background = " url('img/backaa_summer.jpg') no-repeat center";
+    }
+    function addAnimation(){
+        document.body.style.animation = "evn 10s infinite";
+    }
+    function removeAnimation(){
+        document.body.style.animation = "aaa 10s infinite";
+    }
+    </script>
     <script src="p5.js"></script>
     <script src="/socket.io/socket.io.js"></script>
     <script src="script.js"></script>

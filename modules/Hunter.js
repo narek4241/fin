@@ -94,7 +94,7 @@ module.exports = class Hunter extends Base{
     die() {
 
         if (this.energy == 0) {
-            matrix[this.y][this.x] = 0;
+            
             for (var i in HunterArr) {
                 if (this.x == HunterArr[i].x && this.y == HunterArr[i].y) {
                     HunterArr.splice(i, 1);

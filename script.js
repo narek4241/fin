@@ -36,6 +36,16 @@ function setup() {
 
     socket.on("data", drawCreatures);
 
+
+    // click
+
+    function spanel(){
+        document.body.style.background = "#f3f3f3 url('img/back_summer.jpg') no-repeat right top";
+    }
+
+
+    // end - click
+
     function drawCreatures(data) {
         //! after getting data pass it to matrix variable
         matrix = data.matrix;

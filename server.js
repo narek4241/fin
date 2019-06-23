@@ -31,9 +31,9 @@ HunterHashiv = 0;
 //     socket.on("spanel", mah);
 // });
 
-function mah(){
-    console.log(1);
-}
+// function mah(){
+//     console.log(1);
+// }
 
 
 
@@ -159,6 +159,8 @@ function chweather(){
 
 
 
+
+
 creatingObjects();
 
 function game() {
@@ -166,7 +168,25 @@ function game() {
 
     if (grassArr[0] !== undefined) {
         for (var i in grassArr) {
-            grassArr[i].mul();
+            if(season > 0 && season < 6){
+                // "summer";
+                grassArr[i].mul();
+            }
+            else if(season >= 6 && season < 12){
+                // "autumn";
+            }
+            else if(season >= 12 && season < 16){
+                // "winter";
+            }
+            else if(season >= 16 && season < 18){
+                // "spring";
+                grassArr[i].mul();
+                grassArr[i].treat();
+            }
+            else{
+                grassArr[i].mul();
+            }
+            // grassArr[i].mul();
         }
     }
     if (grassEaterArr[0] !== undefined) {
@@ -194,6 +214,7 @@ function game() {
         for (var i in HunterArr) {
             HunterArr[i].move();
             HunterArr[i].shoot();
+            HunterArr[i].die();
         }
     }
 
